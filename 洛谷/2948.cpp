@@ -4,16 +4,16 @@
 using namespace std;
 
 const int MAXN = 10010;
-const int MAXS = 110;
+const int MAXS = 1010;
 int s, t, n;
-int last[MAXN][MAXN], mi[MAXN], dp[MAXS][MAXN], f[MAXN];
+int last[MAXN][MAXS], mi[MAXN], dp[MAXN][MAXS], f[MAXN];
 
 int main() {
 	cin >> t >> s >> n;
 	for(int i=1; i<=s; i++) {
 		int m, l, a;
 		cin >> m >> l >> a;
-		last[m-l+1][a] = max(last[m-l+1][a], m);
+		last[m+l-1][a] = max(last[m+l-1][a], m);
 	}
 	memset(mi, 63, sizeof(mi));
 	for(int i=1; i<=n; i++) {
@@ -24,7 +24,7 @@ int main() {
 	for(int i=1; i<=100; i++) 
 		mi[i] = min(mi[i], mi[i-1]);
 	memset(dp, 128, sizeof(dp));
-	dp[0][0] = dp[0][1] = 0;
+	f[0] = dp[0][1] = 0;
 	for(int i=1; i<=t; i++) {
 		for(int j=1; j<=100; j++) {
 			dp[i][j] = dp[i-1][j];
