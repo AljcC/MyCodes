@@ -7,6 +7,7 @@ const int MAXN = 1000010;
 int n, a[MAXN], f[MAXN];
 
 int main() {
+
 	cin >> n;
 	for(int i=1; i<=n; i++) {
 		cin >> a[i];
