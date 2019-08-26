@@ -15,9 +15,10 @@
 #include <cstdio>
 using namespace std;
 
+#define LL long long
 const int MAXN = 17;
 int n, k, a[MAXN];
-int f[1<<MAXN][MAXN];
+LL f[1<<MAXN][MAXN];
 
 int main() {
 	cin >> n >> k;
@@ -35,7 +36,7 @@ int main() {
 			}
 		}
 	}
-	long long ans=0;
+	LL ans=0;
 	for(int i=1; i<=n; i++) {
 		ans += f[(1<<n)-1][i];
 	}
